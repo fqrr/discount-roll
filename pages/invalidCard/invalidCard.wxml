@@ -1,0 +1,195 @@
+<view class="container">
+  <view class="cardList">
+    <view class="listBox">
+      <view class="listTop">
+        <view class="ltLeft">
+          <view class="type">¥5000</view>
+          <view class="limit">满1000可用</view>
+        </view>
+        <view class="ltRight">
+          <view class="name">绝味鸭脖（万象城店）</view>
+          <view class="desc">500元代金券</view>
+          <view class="lim">限线上抵扣使用</view>
+        </view>
+      </view>
+      <view class="listTime" style="height:45rpx ;line-height: 45rpx;padding-left: 30rpx">
+        有效期：2017.10.10:00 - 2018.10.24:00
+      </view>
+      <view class="status">
+        <view>已过期</view>
+      </view>
+    </view>
+  </view>
+  <view class="cardList">
+    <view class="listBox">
+      <view class="listTop">
+        <view class="ltLeft">
+          <view class="type">体验券</view>
+          <view class="limit">满1000可用</view>
+        </view>
+        <view class="ltRight">
+          <view class="name">绝味鸭脖（万象城店）</view>
+          <view class="desc">500元代金券</view>
+          <view class="lim">限线上抵扣使用</view>
+        </view>
+      </view>
+      <view class="listTime" style="height:45rpx ;line-height: 45rpx;padding-left: 30rpx">
+        有效期：2017.10.10:00 - 2018.10.24:00
+      </view>
+      <view class="status">
+        <view>已使用</view>
+      </view>
+    </view>
+  </view>
+  <view class="cardList">
+    <view class="listBox">
+      <view class="listTop">
+        <view class="ltLeft">
+          <view class="type">¥5000</view>
+          <view class="limit">满1000可用</view>
+        </view>
+        <view class="ltRight">
+          <view class="name">绝味鸭脖（万象城店）</view>
+          <view class="desc">500元代金券</view>
+          <view class="lim">限线上抵扣使用</view>
+        </view>
+      </view>
+      <view class="listTime" style="height:45rpx ;line-height: 45rpx;padding-left: 30rpx">
+        有效期：2017.10.10:00 - 2018.10.24:00
+      </view>
+      <view class="status">
+        <view>已过期</view>
+      </view>
+    </view>
+  </view>
+  <view class="cardList">
+    <view class="listBox">
+      <view class="listTop">
+        <view class="ltLeft">
+          <view class="type">体验券</view>
+          <view class="limit">满1000可用</view>
+        </view>
+        <view class="ltRight">
+          <view class="name">绝味鸭脖（万象城店）</view>
+          <view class="desc">500元代金券</view>
+          <view class="lim">限线上抵扣使用</view>
+        </view>
+      </view>
+      <view class="listTime" style="height:45rpx ;line-height: 45rpx;padding-left: 30rpx">
+        有效期：2017.10.10:00 - 2018.10.24:00
+      </view>
+      <view class="status">
+        <view>已使用</view>
+      </view>
+    </view>
+  </view>
+  <view class="cardList">
+    <view class="listBox">
+      <view class="listTop">
+        <view class="ltLeft">
+          <view class="type">¥5000</view>
+          <view class="limit">满1000可用</view>
+        </view>
+        <view class="ltRight">
+          <view class="name">绝味鸭脖（万象城店）</view>
+          <view class="desc">500元代金券</view>
+          <view class="lim">限线上抵扣使用</view>
+        </view>
+      </view>
+      <view class="listTime" style="height:45rpx ;line-height: 45rpx;padding-left: 30rpx">
+        有效期：2017.10.10:00 - 2018.10.24:00
+      </view>
+      <view class="status">
+        <view>已过期</view>
+      </view>
+    </view>
+  </view>
+  <view class="cardList">
+    <view class="listBox">
+      <view class="listTop">
+        <view class="ltLeft">
+          <view class="type">体验券</view>
+          <view class="limit">满1000可用</view>
+        </view>
+        <view class="ltRight">
+          <view class="name">绝味鸭脖（万象城店）</view>
+          <view class="desc">500元代金券</view>
+          <view class="lim">限线上抵扣使用</view>
+        </view>
+      </view>
+      <view class="listTime" style="height:45rpx ;line-height: 45rpx;padding-left: 30rpx">
+        有效期：2017.10.10:00 - 2018.10.24:00
+      </view>
+      <view class="status">
+        <view>已使用</view>
+      </view>
+    </view>
+  </view>
+  <view class="cardList">
+    <view class="listBox">
+      <view class="listTop">
+        <view class="ltLeft">
+          <view class="type">¥5000</view>
+          <view class="limit">满1000可用</view>
+        </view>
+        <view class="ltRight">
+          <view class="name">绝味鸭脖（万象城店）</view>
+          <view class="desc">500元代金券</view>
+          <view class="lim">限线上抵扣使用</view>
+        </view>
+      </view>
+      <view class="listTime" style="height:45rpx ;line-height: 45rpx;padding-left: 30rpx">
+        有效期：2017.10.10:00 - 2018.10.24:00
+      </view>
+      <view class="status">
+        <view>已过期</view>
+      </view>
+    </view>
+  </view>
+  <view class="cardList">
+    <view class="listBox">
+      <view class="listTop">
+        <view class="ltLeft">
+          <view class="type">体验券</view>
+          <view class="limit">满1000可用</view>
+        </view>
+        <view class="ltRight">
+          <view class="name">绝味鸭脖（万象城店）</view>
+          <view class="desc">500元代金券</view>
+          <view class="lim">限线上抵扣使用</view>
+        </view>
+      </view>
+      <view class="listTime" style="height:45rpx ;line-height: 45rpx;padding-left: 30rpx">
+        有效期：2017.10.10:00 - 2018.10.24:00
+      </view>
+      <view class="status">
+        <view>已使用</view>
+      </view>
+    </view>
+  </view>
+  <view class="cardList">
+    <view class="listBox">
+      <view class="listTop">
+        <view class="ltLeft">
+          <view class="type">体验券</view>
+          <view class="limit">满1000可用</view>
+        </view>
+        <view class="ltRight">
+          <view class="name">绝味鸭脖（万象城店）</view>
+          <view class="desc">500元代金券</view>
+          <view class="lim">限线上抵扣使用</view>
+        </view>
+      </view>
+      <view class="listTime" style="height:45rpx ;line-height: 45rpx;padding-left: 30rpx">
+        有效期：2017.10.10:00 - 2018.10.24:00
+      </view>
+      <view class="status">
+        <view>已使用</view>
+      </view>
+    </view>
+  </view>
+
+
+
+
+</view>

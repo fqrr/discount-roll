@@ -1,0 +1,18 @@
+page{
+
+}
+.service{
+    padding: 60rpx 30rpx;
+}
+.tit{
+    text-align: center;
+    line-height:60rpx;
+    height: 60 rpx;
+    font-size: 40rpx;
+    font-weight: bold;
+}
+.txt{
+    line-height:20px;
+    font-size: 25rpx;
+    text-indent:2em;
+}

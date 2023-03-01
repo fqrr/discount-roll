@@ -1,0 +1,19 @@
+<view class="container">
+    <view class="sellLists" >
+        <!--适用商家-->
+        <view class="seller" style="padding: 15px  15px 0 15px" wx:for="{{list }}" wx:key="item.id">
+            <view class="sellerCont" style="padding-bottom: 15px">
+                <view class="sellLogo">
+                    <image src="{{ item.shopPicture }}"></image>
+                </view>
+                <view class="sellDetail">
+                    <view class="sellName">{{ item.shopName }}</view>
+                    <view class="sellNature">
+                        <text class="nature">{{ item.shopTypeName }}</text>
+                        <text class="addr">{{ item.shopFloor }}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

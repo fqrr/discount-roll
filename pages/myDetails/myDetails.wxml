@@ -1,0 +1,352 @@
+<view class="container">
+    <!--免费领取券-->
+    <block wx:if="{{isId=='free'}}">
+        <view class="head">
+            <image mode="{{item.mode}}" src="{{src}}"></image>
+            <view class="wider">
+                <view class="wide">
+                    <view class="headCont">
+                        <view class="headContTop">
+                            <view class="hctName">
+                                成都华润万象城
+                            </view>
+                            <view class="hctTime">
+                                <text>{{ freeDetail.consumeInfo.useStartTime }}</text>
+                                至
+                                <text>{{ freeDetail.consumeInfo.useEndTime?freeDetail.consumeInfo.useEndTime:'' }}</text>
+                            </view>
+                        </view>
+                        <view class="headContCent">
+                            {{ freeDetail.couponInfo.name }}
+                        </view>
+                       <!-- <view class="headContBot">
+                            {{ freeDetail.consumeInfo.useConditionDesc }}
+                        </view>-->
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--适用商家-->
+        <view class="direction seller">
+            <view class="direTop">
+                <view class="dtLeft" style="width:84px">
+                    <view class="pic">
+                        <image src="../img/sj.png"/>
+                    </view>
+                    <text class="dtText">适用商家</text>
+                </view>
+                <view class="dtRight" style="width:64px" bindtap="toSeller" data-scope="{{freeDetail.couponInfo.serviceScope}}" data-id="{{freeDetail.couponInfo.id}}">
+                    <text class="dtText" wx:if="{{freeDetail.couponInfo.serviceScope==0}}">{{freeDetail.couponInfo.subTitle==='全场通用'?'全场通用':''}}</text>
+                    <text class="dtText" wx:if="{{freeDetail.couponInfo.serviceScope>1}}">共{{ freeDetail.couponInfo.serviceScope }}家</text>
+                    <view class="toPic" wx:if="{{freeDetail.couponInfo.serviceScope>1}}">
+                        <image src="../img/to.png"/>
+                    </view>
+                </view>
+            </view>
+            <view class="sellerCont" wx:if="{{freeDetail.couponInfo.serviceScope==1}}">
+                <view class="sellLogo">
+                    <image wx:if="{{ freeDetail.shopInfo.shopPicture }}" src="{{ freeDetail.shopInfo.shopPicture }}"></image>
+                </view>
+                <view class="sellDetail">
+                    <view class="sellName">{{ freeDetail.shopInfo.shopName?freeDetail.shopInfo.shopName:'' }}</view>
+                    <view class="sellNature">
+                        <text class="nature">{{ freeDetail.shopInfo.shopTypeName }}</text>
+                        <text class="addr">{{ freeDetail.shopInfo.shopFloor }}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--使用说明-->
+        <view class="direction">
+            <view class="direTop">
+                <view class="pic">
+                    <image src="../img/user.png"/>
+                </view>
+                <text class="dtText">使用说明</text>
+            </view>
+            <view class="direCont">
+                <view class="time" wx:for="{{freeDetail.couponInfo.useInstructions}}">
+                    <text class="tit">{{ item.label }}</text>
+                    <text class="txt">{{ item.text}}</text>
+                </view>
+            </view>
+        </view>
+        <!--可领取级别-->
+        <!--<view class="direction">
+            <view class="direTop">
+                <view class="pic">
+                    <image src="../img/user.png"/>
+                </view>
+                <text class="dtText">可领取级别</text>
+            </view>
+            <view class="direCont">
+                <block wx:if="{{cardLevel.length>0}}">
+                    <view class="time" wx:for="{{cardLevel}}" wx:key="item.id">
+                        <text class="tit" style="width: 200rpx">{{ item }}</text>
+                    </view>
+                </block>
+                <view wx:else class="time"> <text class="tit" style="width: 200rpx">没有级别限制</text></view>
+            </view>
+        </view>-->
+        <!--领取分享-->
+        <view class="freeReceive">
+            <!--<button class="receive" hover-stay-time="500" bindtap="toDraw" hidden="{{receiveHide}}">免费领取</button>-->
+            <button class="receive" hover-stay-time="500" bindtap="toLoad" hidden="{{freeImmediateUse}}" data-name="我的卡券">立即使用</button>
+            <button class="hadDraw" hover-stay-time="500" hidden="{{hadHide}}">已抢光</button>
+            <button class="share" open-type="share" hover-stay-time="500" >分享</button>
+        </view>
+    </block>
+    <!--现金购买券-->
+    <block wx:if="{{isId==='fee'}}">
+        <view class="head">
+            <image mode="{{item.mode}}" src="{{src}}"></image>
+            <view class="wider">
+                <view class="wide">
+                    <view class="headCont">
+                        <view class="headContTop">
+                            <view class="hctName">
+                                成都华润万象城
+                            </view>
+                            <view class="hctTime">
+                                <text>{{ buyDetail.consumeInfo.useStartTime }}</text>
+                                至
+                                <text>{{ buyDetail.consumeInfo.useEndTime }}</text>
+                            </view>
+                        </view>
+                        <view class="headContCent">
+                            {{ buyDetail.title }}
+                        </view>
+                        <view class="headContBot">
+                            <text>实付价:{{buyDetail.salePrice}} <!--<text style="text-decoration:line-through;margin-left: 10rpx;"> 会员价:{{buyDetail.marketPrice}}</text>--></text><!-- <text>{{ buyDetail.sellNumb }}人已领</text>-->
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--适用商家-->
+        <view class="direction seller">
+            <view class="direTop">
+                <view class="dtLeft" style="width:84px">
+                    <view class="pic">
+                        <image src="../img/sj.png"/>
+                    </view>
+                    <text class="dtText">适用商家</text>
+                </view>
+                <view class="dtRight" style="width:120rpx;text-align:right" bindtap="toSeller" data-scope="{{buyDetail.applyShopCount}}" data-gbid="{{buyDetail.gbid}}">
+                    <text class="dtText" wx:if="{{buyDetail.allCanUse==='Y'}}">{{ buyDetail.allCanUse==='Y'?'全场通用':'' }}{{buyDetail.applyShopCount>1?' |':''}}</text>
+                    <text class="dtText" wx:if="{{buyDetail.applyShopCount>1}}">共{{ buyDetail.applyShopCount }}家</text>
+                    <view class="toPic" wx:if="{{buyDetail.applyShopCount>1}}">
+                        <image src="../img/to.png"/>
+                    </view>
+                </view>
+            </view>
+            <view class="sellerCont" wx:if="{{buyDetail.applyShopCount==1}}">
+                <view class="sellLogo">
+                    <image wx:if="{{ buyDetail.shopInfo.shopPicture }}" src="{{ buyDetail.shopInfo.shopPicture }}"></image>
+                </view>
+                <view class="sellDetail">
+                    <view class="sellName">{{ buyDetail.shopInfo.shopName?buyDetail.shopInfo.shopName:''}}</view>
+                    <view class="sellNature">
+                        <!--<text class="nature">{{ buyDetail.shopInfo.shopCode?buyDetail.shopInfo.shopCode:'' }}</text>-->
+                        <text class="addr">{{ buyDetail.shopInfo.shopFloor?buyDetail.shopInfo.shopFloor:'' }}</text>
+                    </view>
+                    <!--<view class="phone" bindtap="callTel" data-tel="{{buyDetail.shopInfo.shopPhoneNumber}}">
+                        <image src="../img/phone.png"></image>
+                    </view>-->
+                </view>
+            </view>
+        </view>
+        <!--使用说明-->
+        <view class="direction">
+            <view class="direTop">
+                <view class="pic">
+                    <image src="../img/user.png"/>
+                </view>
+                <text class="dtText">使用说明</text>
+            </view>
+            <view class="direCont">
+                <view class="time" wx:for="{{buyDetail.tips}}" wx:key="item.id">
+                    <text class="tit">{{ item.title }}</text>
+                    <text class="txt">{{ item.introduction }}</text>
+                </view>
+            </view>
+        </view>
+       <!-- &lt;!&ndash;卡券详情&ndash;&gt;
+        <view class="detail" wx:if="{{buyDetail.imageTextDescription.text || buyDetail.imageTextDescription.imgList.length>0}}">
+            <view class="direTop">
+                <view class="pic">
+                    <image src="../img/detail.png"/>
+                </view>
+                <text class="txt">卡券详情</text>
+            </view>
+            <view class="detailCont">
+                <view class="card">
+                    <view class="dcPic" wx:for="buyDetail.imageTextDescription.imgList">
+                        <image src="{{item}}"/>
+                    </view>
+                    <view class="describe">
+                        {{ buyDetail.imageTextDescription.text?buyDetail.imageTextDescription.text:'' }}
+                    </view>
+                </view>
+            </view>
+        </view>-->
+        <!--领取分享-->
+        <view class="freeReceive">
+            <button class="receive" hover-stay-time="500" bindtap="toBuy" hidden="{{receivePay}}">立即支付</button>
+            <button class="butBtn" hover-stay-time="500" bindtap="toBack" hidden="{{isToBack}}" data-id="{{buyDetail.gbid}}">申请退款</button>
+            <button class="butBtn" hover-stay-time="500" bindtap="toRefundDetails" hidden="{{refundSchedule}}" data-refunds="{{ buyDetail.refundsNo }}">查看退款进度</button>
+           <!-- <button class="butBtn" hover-stay-time="500" bindtap="toBack" hidden="{{refundSchedule}}" data-id="{{buyDetail.gbid}}">已失效</button>-->
+            <button class="butBtn {{isWidth?'butBtnWidth':''}}" hover-stay-time="500" bindtap="toLoad" hidden="{{immediateUse}}" data-name="待核销">立即使用</button>
+            <button class="hadDraw" hover-stay-time="500" hidden="{{hadHide}}">{{ btnTit }}</button>
+            <button class="share" open-type="share" hover-stay-time="500" >分享</button>
+        </view>
+        <!--购买支付-->
+        <view class="mongolialayer" hidden="{{feeHidden}}">
+            <view class="bombBox">
+                <view class="tit">优惠券购买</view>
+                <view class="close" bindtap="toClose">
+                    <image src="../img/close.png"></image>
+                </view>
+                <view class="cont">
+                    <view class="section">
+                        <text class="payNumber">￥{{buyDetail.salePrice}}</text>
+                    </view>
+                    <!--<view class="section code">
+                        <text>所需积分:</text>
+                    </view>-->
+                </view>
+                <view>
+                    <button bindtap="submitPay" class="fast" data-orderno="{{buyDetail.orderNo}}">确认支付</button>
+                </view>
+            </view>
+            <image src="../img/close2.png" class="backClose" bindtap="toClose"></image>
+        </view>
+        <!--退款申请-->
+        <view class="mongolialayer" hidden="{{isBack}}">
+            <view class="bombBox" style="top: 150rpx;">
+                <image src="../img/back.png" class="backImg"></image>
+                <view class="backCont">
+                    <view class="backContBox">
+                        <view class="backContBoxTit">退款金额:</view>
+                        <view class="backContBoxVal" style="font-size: 36rpx">{{ buyDetail.sumTotalAmount }}</view>
+                    </view>
+                    <view class="backContBox">
+                        <view class="backContBoxTit">退款订单编号:</view>
+                        <view class="backContBoxVal">{{ buyDetail.orderNo }}</view>
+                    </view>
+                    <view class="backContBox">
+                        <view class="backContBoxTit">退回账号:</view>
+                        <view class="backContBoxVal">{{ buyDetail.payTypeName }}</view>
+                    </view>
+                </view>
+                <button class="fast" bindtap="sureBack" data-orderno="{{buyDetail.orderNo}}" style="margin-top: 0;width: 520rpx;">确认退款</button>
+            </view>
+            <image src="../img/close2.png" class="backClose" bindtap="closeBack"></image>
+        </view>
+    </block>
+
+    <!--积分兑换券-->
+    <block wx:if="{{isId==='coin'}}">
+        <view class="head">
+            <image mode="{{item.mode}}" src="{{src}}"></image>
+            <view class="wider">
+                <view class="wide">
+                    <view class="headCont">
+                        <view class="headContTop">
+                            <view class="hctName">
+                                成都华润万象城
+                            </view>
+                            <view class="hctTime">
+                                <text>{{ giftDetail.validityStartDate }}</text>
+                                至
+                                <text>{{ giftDetail.validityEndDate }}</text>
+                            </view>
+                        </view>
+                        <view class="headContCent">
+                            {{ giftDetail.giftName }}
+                        </view>
+                        <view class="headContBot">
+                            <text>积分：{{ giftDetail.point }}</text> <!--<text>剩余{{ giftDetail.leftCount }}</text>-->
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--适用商家-->
+        <!--<view class="direction seller">
+            <view class="direTop">
+                <view class="dtLeft" style="width:84px">
+                    <view class="pic">
+                        <image src="../img/sj.png"/>
+                    </view>
+                    <text class="dtText">适用商家</text>
+                </view>
+                <view class="dtRight" style="width:64px" bindtap="toSeller" data-scope="{{couponInfo.serviceScope}}">
+                    <text class="dtText">共{{ couponInfo.serviceScope }}家</text>
+                    <view class="toPic" wx:if="{{couponInfo.serviceScope>1}}">
+                        <image src="../img/to.png"/>
+                    </view>
+                </view>
+            </view>
+            <view class="sellerCont">
+                <view class="sellLogo">
+                    <image wx:if="{{ giftDetail.giftPictureUrl }}" src="{{ giftDetail.giftPictureUrl }}"></image>
+                </view>
+                <view class="sellDetail">
+                    <view class="sellName">{{ giftDetail.shopName}}</view>
+                    <view class="sellNature">
+                        <text class="nature">{{ giftDetail.shopTypeName?giftDetail.shopTypeName:'' }}</text>
+                        <text class="addr">{{ giftDetail.shopFloor?giftDetail.shopFloor:'' }}</text>
+                    </view>
+                    <view class="phone" bindtap="callTel" data-tel="{{buyDetail.shopInfo.shopPhoneNumber}}">
+                        <image src="../img/phone.png"></image>
+                    </view>
+                </view>
+            </view>
+        </view>-->
+        <!--使用说明-->
+        <view class="direction">
+            <view class="direTop">
+                <view class="pic">
+                    <image src="../img/user.png"/>
+                </view>
+                <text class="dtText">使用说明</text>
+            </view>
+            <view class="direCont">
+                <view class="time">
+                    <text class="tit">兑换地址</text>
+                    <text class="txt">{{ giftDetail.exchangeAddress }}</text>
+                </view>
+            </view>
+        </view>
+
+        <!--卡券详情-->
+        <view class="detail" wx:if="{{giftDetail.imageTextDescription.text || giftDetail.imageTextDescription.imgList.length>0}}">
+            <view class="direTop">
+                <view class="pic">
+                    <image src="../img/detail.png"/>
+                </view>
+                <text class="txt">卡券详情</text>
+            </view>
+            <view class="detailCont">
+                <view class="card">
+                    <view class="dcPic" wx:for="giftDetail.imageTextDescription.imgList">
+                        <image src="{{item}}"/>
+                    </view>
+                    <view class="describe">
+                        {{ giftDetail.imageTextDescription.text }}
+                    </view>
+                </view>
+            </view>
+        </view>
+        <!--领取分享-->
+        <view class="freeReceive">
+            <button class="receive" hover-stay-time="500" bindtap="toLoad" wx:if="{{giftDetail.exchangeState==1}}" data-name="我的兑换">立即使用</button>
+            <button class="hadDraw" hover-stay-time="500" wx:if="{{giftDetail.exchangeState==2}}">已使用</button>
+            <button class="hadDraw" hover-stay-time="500" wx:if="{{giftDetail.exchangeState==3}}">已过期</button>
+            <button class="share" open-type="share" hover-stay-time="500" >分享</button>
+        </view>
+    </block>
+</view>
+
+

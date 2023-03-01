@@ -1,0 +1,143 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /*padding: 200rpx 0;*/
+  box-sizing: border-box;
+
+}
+
+page{
+  background-color:#f4f4f4;
+}
+
+/*模态框*/
+.mongolialayer{
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index:999;
+
+}
+
+.bombBox{
+  width: 610rpx;
+  text-align: center;
+  position: absolute;
+  background-color: #fff;
+  left:70rpx;
+  top: 140rpx;
+  padding-bottom: 30rpx;
+  border-radius:  10px;
+}
+.bombBox .tit{
+  width: 610rpx;
+  height: 100rpx;
+  border-radius: 10px 10px 0 0;
+  background-color: #fd6759;
+  font-size: 35rpx;
+  letter-spacing: 2rpx;
+  font-weight: bold;
+  line-height: 100rpx;
+  text-align: center;
+  color: #ffffff;
+}
+
+.bombBox .cont {
+  width: 610rpx;
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  margin-bottom: 30rpx;
+}
+
+.bombBox .tip{
+  width: 550 rpx;
+  height: 50rpx;
+  color:red;
+  line-height: 50rpx;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+}
+.cont .section{
+  width: 550rpx;
+  height: 80rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.cont .section input{
+  width: 550rpx;
+  height: 80rpx;
+  line-height:80rpx;
+  text-align: left;
+  border-bottom: 1px solid rgba(153,153,153,0.5);
+}
+.cont .code{
+  margin-top: 46rpx;
+  overflow: hidden;
+  height: 83rpx;
+  line-height:83rpx;
+}
+.cont .code input{
+  float: left;
+  height: 80rpx;
+  width: 274rpx;
+  border-bottom: 1px solid rgba(153,153,153,0.5);
+}
+.cont .code button{
+  float: left;
+  width: 246rpx;
+  height: 80rpx;
+  margin-left: 28rpx;
+  line-height: 80rpx;
+  border-radius: 10px;
+  background-color: #ffffff;
+  border: solid 1px #999999;
+  font-size: 28rpx;
+  /*font-weight: bold;*/
+  color: #222222;
+}
+
+.cont .txt{
+  margin-top: 46rpx;
+  text-align: left;
+  font-size: 25rpx;
+  line-height: 1.25;
+  text-align: left;
+  color: #222222;
+}
+
+.cont .txt text{
+  color: #ff9239;
+}
+
+.fast{
+  width: 400rpx;
+  height: 80rpx;
+  line-height:80rpx;
+  margin:50rpx auto 0;
+  border-radius: 10px;
+  background-color: #fd6759;
+  box-shadow: 0px 10px 9.8px 0.2px rgba(191, 91, 9, 0.2);
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #ffffff;
+  letter-spacing: 2rpx;
+}
+.close {
+  position: absolute;
+  cursor: pointer;
+  width: 56rpx;
+  height: 56rpx;
+  top: 26rpx;
+  right: 20rpx;
+}
+.close image{
+  width: 28rpx;
+  height: 28rpx;
+}

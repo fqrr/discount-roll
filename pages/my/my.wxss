@@ -1,0 +1,257 @@
+page{height:100%;background-color: rgb(244,245,250);overflow: hidden}
+swiper{height:100%}
+/*--------------tab栏切换功能--------------*/
+.swiper-tab{
+    width: 100%;
+    border-bottom: 2rpx solid rgb(204,204,204);
+    text-align: center;
+    line-height: 80rpx;
+}
+.swiper-tab-list{
+    font-size: 30rpx;
+    display: inline-block;
+    width: 20%;
+    color: #777777;
+    padding:0 15%;
+}
+.on{
+    color:rgb(253,103,89);
+    border-bottom: 2rpx solid rgb(253,103,89);
+    margin-bottom:-1rpx;
+}
+
+.swiper-box{
+    display: block;
+    height: calc(100% - 210rpx);
+    width: 100%;
+}
+
+.codeTit{
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-bottom: 20rpx;
+    position: relative;
+}
+.codeTitLeft{
+    position: absolute;
+    left: 0;
+    top:40rpx;
+    height: 1px;
+    background-color: rgba(253,103,89,0.5);
+    width: 712rpx;
+    z-index: 1;
+}
+.codeTitText{
+    position: absolute;
+    left: 50%;
+    top:0;
+    width: 350rpx;
+    margin-left: -175rpx;
+    color: rgb(253,103,89);
+    text-align: center;
+    font-size: 32rpx;
+    background-color: rgb(244,245,250);
+    z-index: 10;
+    box-sizing: border-box;
+    padding-left: 14rpx;
+}
+.myCordBj{
+    width: 712rpx;
+    height: 190rpx;
+}
+.listBox{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 712rpx;
+    height: 190rpx;
+}
+.cardList{
+    width: 712rpx;
+    height: 190rpx;
+    margin:20rpx auto 0 ;
+    overflow: hidden;
+    position: relative;
+}
+
+.listTop .ltRight{
+    overflow: hidden;
+    color: rgb(253,103,89);
+    height: 70rpx;
+}
+.listBox .listTime{
+    display: flex;
+    font-size: 18rpx;
+    width: 100%;
+    text-align: left;
+    color:rgb(153,153,153);
+    height:45rpx ;
+    line-height: 45rpx;
+    overflow: hidden;
+}
+.listTop{
+    display:inline-block;
+    height: 182rpx;
+    box-sizing: border-box;
+    padding-bottom: 20 rpx;
+    border-bottom: dashed 1px #ffffff;
+    margin-left: 50rpx;
+    overflow: hidden;
+}
+.myLogo{
+    width: 116rpx;
+    height: 116rpx;
+    display: inline-block;
+    border-radius: 50%;
+    vertical-align: top;
+    border: 2rpx solid rgb(244,245,250);
+    margin: 36rpx;
+}
+.ltLeft{
+    height: 40rpx;
+    color: rgb(153,153,153);
+    margin-top: 20rpx;
+    font-size: 32rpx;
+}
+
+.listTop .ltRight .type{
+    font-size: 48rpx;
+    display: inline-block;
+    margin-right:14rpx;
+}
+.listTop .ltRight .name{
+    font-size: 24rpx;
+    display: inline-block;
+}
+.goodCode{
+    position: absolute;
+    right: -4rpx;
+    top: 14rpx;
+    font-size: 20rpx;
+    transform: rotate(45deg);
+    color: #ffffff;
+}
+/*--------------------------------*/
+
+/*无效卡券*/
+.container {
+    width: 750rpx;
+    /*height: 1545*@wu;*/
+    min-height:100% ;
+    background-color: #f4f4f4;
+    text-align: left;
+}
+
+.cardList:last-child{
+    margin-bottom: 20px;
+}
+
+
+.listBox .status{
+    position: absolute;
+    top: 0px;
+    right: 0rpx;
+    font-size: 30rpx;
+    width: 367rpx;
+    height:63rpx;
+    font-weight: 500;
+    line-height: 63rpx;
+    color: #ffffff;
+
+}
+.listBox .status view{
+    width: 366rpx;
+    height:63rpx;
+    line-height: 63rpx;
+    background-color: #999999;
+    transform:translate(150rpx, 0) rotate(45deg);
+    text-align: center;
+}
+/*.valid .cardList{
+    background-image: linear-gradient(to top, #e9954b, #fcaf6a);
+    background-image: linear-gradient(to top, #ff5a64, #ff7b55);
+}*/
+/*没有卡券*/
+.noCard{
+    width: 750 rpx;
+    height: 260 rpx;
+    margin-top: 282rpx
+}
+.noCard image{
+    display: block;
+    width: 180rpx;
+    height: 180rpx;
+    margin: 0 auto;
+}
+.noCard .txt{
+    text-align: center;
+    font-size: 36rpx;
+    font-weight: 500;
+    line-height: 1.33;
+    color: #999999;
+    letter-spacing: 0.5rpx;
+    margin-top: 68rpx
+}
+
+
+/*头部登陆*/
+.topLogin{
+    height: 128rpx;
+    width: 750rpx;
+    background-color: #ffffff;
+    overflow: hidden;
+    line-height: 30rpx;
+}
+.topLogin .tl-left{
+    float: left;
+    width: 240rpx;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding-left:28rpx;
+}
+.topLogin .tl-left .leftChild{
+    font-size: 24rpx;
+    line-height:60rpx;
+    color: rgb(51,51,51);
+}
+.topLogin .tl-left image{
+    width: 18rpx;
+    height: 20rpx;
+    margin-right: 10rpx;
+}
+.topLogin .tl-right{
+    float: right;
+    width: 180rpx;
+    height: 80rpx;
+    line-height: 128rpx;
+}
+.topLogin .backOrChange{
+    display: inline-block;
+    font-size: 24rpx;
+    color: rgb(51,51,51);
+    box-sizing: border-box;
+    padding-right: 10rpx;
+}
+.userTit{
+    color:rgb(253,103,89);
+}
+.moreIcon{
+    width: 26rpx;
+    height: 26rpx;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 14rpx;
+    line-height: 26rpx;
+    color: #ffffff;
+    background-color: rgb(153,153,153);
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10rpx;
+    margin-top: -4rpx;
+}
+.more{
+    color: rgb(153,153,153);
+    font-size: 28rpx;
+    text-align: center;
+    margin-top: 20rpx;
+}

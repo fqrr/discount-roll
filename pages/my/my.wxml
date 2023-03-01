@@ -1,0 +1,214 @@
+<view class="topLogin" hidden="{{topLogin}}">
+    <view class="tl-left">
+        <view class="leftChild"><image src="../img/user_xs.png"></image><text class="userTit">用户:</text>{{loginMobile}}</view>
+        <view class="leftChild"><image src="../img/case_xs.png"></image><text class="userTit">积分:</text>{{point}}</view>
+    </view>
+    <view class="tl-right" style="text-align: center;width: 100rpx;">
+        <!-- <view bindtap="quit" class="backOrChange">切换商场</view>-->
+        <view bindtap="quit" class="backOrChange">退出</view>
+    </view>
+</view>
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">有效券</view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">无效券</view>
+</view>
+<swiper current="{{currentTab}}" class="swiper-box" duration="300" bindchange="bindChange">
+    <!-- 会员卡 -->
+    <swiper-item style="overflow:auto;padding: 10px 0;box-sizing:border-box;-webkit-overflow-scrolling: touch;">
+        <view class="valid">
+            <view class="noCard" wx:if="{{free.list.length===0 && fee.list.length===0 && coin.list.length===0}}">
+                <image src="{{src}}"></image>
+                <view class="txt">暂无相关卡券</view>
+            </view>
+            <view class="codeTit" wx:if="{{fee.list.length>0}}">
+                <view class="codeTitLeft"></view>
+                <view class="codeTitText">现金购买券（{{ feeAm.length }}张）</view>
+            </view>
+            <navigator class="cardList" url="../myDetails/myDetails?orderNo={{item.orderNo}}" wx:for="{{fee.list}}" wx:key="item.id" data-id="{{item.id}}">
+                <image class="myCordBj" src="../img/myBj.png"></image>
+                <view class="listBox">
+                    <image class="myLogo" src="{{item.picCoverUrl?item.picCoverUrl:'#'}}"></image>
+                    <view class="listTop">
+                        <view class="ltLeft">
+                            {{ item.title }}
+                        </view>
+                        <view class="ltRight">
+                            <view class="type">¥{{ item.salePrice }}</view>
+                            <view class="name">{{ item.name }}</view>
+                        </view>
+                        <view class="listTime" >
+                            有效期：{{ item.createTime }} - {{ item.useEndTime }}
+                        </view>
+                    </view>
+                    <view class="goodCode">{{codeType}}</view>
+                </view>
+            </navigator>
+            <view class="more" bindtap="feeMore" wx:if="{{fee.list.length>0}}">{{feePage>=fee.pages?'没有更多了':'更多'}}<view class="moreIcon" wx:if="{{feePage<fee.pages}}"> >> </view></view>
+
+            <view class="codeTit" wx:if="{{coin.list.length>0}}">
+                <view class="codeTitLeft"></view>
+                <view class="codeTitText">积分兑换券（{{ coin.total }}张）</view>
+            </view>
+            <navigator class="cardList" url="../myDetails/myDetails?giftId={{item.giftId}}&exchangeCode={{item.exchangeCode}}" wx:for="{{coin.list}}" wx:key="item.giftId" wx:if="{{ coin.list.length > 0}}">
+                <image class="myCordBj" src="../img/duiH.png"></image>
+                <view class="listBox">
+                    <image class="myLogo" src="{{item.giftPictureUrl?item.giftPictureUrl:'#'}}"></image>
+                    <view class="listTop">
+                        <view class="ltLeft">
+                            {{ item.giftName }}
+                        </view>
+                        <view class="ltRight">
+                            <view class="name">积分：</view>
+                            <view class="type">{{item.point}}</view>
+                        </view>
+                        <view class="listTime" >
+                            有效期：{{ item.validityStartDate }} - {{ item.validityEndDate }}
+                        </view>
+                    </view>
+                    <view class="goodCode">兑换券</view>
+                </view>
+            </navigator>
+            <view class="more" bindtap="coinMore" wx:if="{{coin.list.length>0}}">{{coinPage>=coin.pages?'没有更多了':'更多'}}<view class="moreIcon" wx:if="{{coinPage<coin.pages}}"> >> </view></view>
+
+            <view class="codeTit" wx:if="{{free.list.length>0}}">
+                <view class="codeTitLeft"></view>
+                <view class="codeTitText">免费领取券（{{ free.total }}张）</view>
+            </view>
+            <navigator class="cardList" url="../myDetails/myDetails?id={{item.id}}" wx:for="{{free.list}}" wx:key="item.id" wx:if="{{ free.list.length > 0}}">
+                <image class="myCordBj" src="../img/duiH.png"></image>
+                <view class="listBox">
+                    <image class="myLogo" src="{{item.logo?item.logo:'#'}}"></image>
+                    <view class="listTop">
+                        <view class="ltLeft" style="margin-top: 60rpx;">
+                            {{item.name}}
+                        </view>
+                        <!--<view class="ltRight">
+                            <view class="type">{{item.useCondition}}</view>
+                            <view class="name">{{item.useConditionDesc}}</view>
+                        </view>-->
+                        <view class="listTime" style="margin-top: 40rpx;">
+                            有效期：{{ item.useBeginTime?item.useBeginTime:'' }} - {{ item.expiryDate?item.expiryDate:'' }}
+                        </view>
+                    </view>
+                    <view class="goodCode">领取券</view>
+                </view>
+            </navigator>
+            <view class="more" bindtap="freeMore" wx:if="{{free.list.length>0}}">{{freePage>=free.pages?'没有更多了':'更多'}}<view class="moreIcon" wx:if="{{freePage<free.pages}}"> >> </view></view>
+        </view>
+    </swiper-item>
+
+    <!-- 失效优惠劵-->
+    <swiper-item style="overflow:auto ;padding: 10px 0;box-sizing:border-box;-webkit-overflow-scrolling: touch;">
+        <view class="invalid">
+            <view class="noCard" wx:if="{{allUnFree.length===0 && allUnCoin.length===0 && allUnFee.length===0}}">
+                <image src=" {{src}} "></image>
+                <view class="txt">暂无相关卡券</view>
+            </view>
+
+            <view class="codeTit" wx:if="{{fee.list.length>0}}">
+                <view class="codeTitLeft"></view>
+                <view class="codeTitText">现金购买券（{{ unFee.total }}张）</view>
+            </view>
+            <navigator class="cardList" url="../myDetails/myDetails?orderNo={{item.orderNo}}" wx:for="{{unFee.list}}" wx:key="item.id">
+                <image class="myCordBj" src="../img/shiX.png"></image>
+                <view class="listBox">
+                    <image class="myLogo" src="{{item.picCoverUrl?item.picCoverUrl:'#'}}"></image>
+                    <view class="listTop">
+                        <view class="ltLeft">
+                            {{ item.title }}
+                        </view>
+                        <view class="ltRight">
+                            <view class="type">¥{{ item.salePrice }}</view>
+                            <view class="name">{{ item.name }}</view>
+                        </view>
+                        <view class="listTime" >
+                            有效期：{{ item.createTime }} - {{ item.useEndTime }}
+                        </view>
+                    </view>
+                    <view class="goodCode" wx:if="{{item.status==1}}">未付款</view>
+                    <view class="goodCode" wx:if="{{item.status==3}}">已核销</view>
+                    <view class="goodCode" wx:if="{{item.status==4}}">已过期</view>
+                    <view class="goodCode" wx:if="{{item.status==5}}">已过期</view>
+                    <view class="goodCode" wx:if="{{item.status==6}}">已取消</view>
+                    <view class="goodCode" wx:if="{{item.status==7}}">待退款</view>
+                    <view class="goodCode" wx:if="{{item.status==8}}">处理中</view>
+                    <view class="goodCode" wx:if="{{item.status==9}}">退款成功</view>
+                    <!--<view class="goodCode" wx:if="{{item.status==10}}">退款驳回</view>-->
+                </view>
+            </navigator>
+            <view class="more" bindtap="unFeeMore" wx:if="{{fee.list.length>0}}">{{unFeePage>=unFee.pages?'没有更多了':'更多'}}<view class="moreIcon" wx:if="{{unFeePage<unFee.pages}}"> >> </view></view>
+
+            <view class="codeTit" wx:if="{{allUnCoin.length>0}}">
+                <view class="codeTitLeft"></view>
+                <view class="codeTitText">积分兑换券（{{ allUnCoin.length }}张）</view>
+            </view>
+            <navigator class="cardList" url="../myDetails/myDetails?giftId={{item.giftId}}&exchangeCode={{item.exchangeCode}}" wx:for="{{unCoin.list}}" wx:key="item.giftId" wx:if="{{ allUnCoin.length > 0}}">
+                <image class="myCordBj" src="../img/shiX.png"></image>
+                <view class="listBox">
+                    <image class="myLogo" src="{{item.giftPictureUrl?item.giftPictureUrl:'#'}}"></image>
+                    <view class="listTop">
+                        <view class="ltLeft">
+                            {{item.giftName}}
+                        </view>
+                        <view class="ltRight">
+                            <view class="name">积分：</view>
+                            <view class="type">{{item.point}}</view>
+                        </view>
+                        <view class="listTime" >
+                            有效期：{{ item.validityStartDate }} - {{ item.validityEndDate }}
+                        </view>
+                    </view>
+                    <view class="goodCode">{{item.exchangeState==2?'已使用':'已过期'}}</view>
+                </view>
+            </navigator>
+            <view class="more" bindtap="unCoinMore" wx:if="{{allUnCoin.length>0}}">{{unCoinPage>=unCoin.pages?'没有更多了':'更多'}}<view class="moreIcon" wx:if="{{unCoinPage<unCoin.pages}}"> >> </view></view>
+
+            <view class="codeTit" wx:if="{{unUserFree.length>0}}">
+                <view class="codeTitLeft"></view>
+                <view class="codeTitText">免费领取券（{{ allUnFree.length }}张）</view>
+            </view>
+            <navigator class="cardList" url="../myDetails/myDetails?id={{item.id}}" wx:for="{{unFree.list}}" wx:key="item.id" wx:if="{{ allUnFree.length > 0}}">
+                <image class="myCordBj" src="../img/duiH.png"></image>
+                <view class="listBox">
+                    <image class="myLogo" src="{{item.logo?item.logo:'#'}}"></image>
+                    <view class="listTop">
+                        <view class="ltLeft" style="margin-top: 60rpx;">
+                            {{item.name}}
+                        </view>
+                        <!--<view class="ltRight">
+                            <view class="type">{{item.useCondition?item.useCondition:''}}</view>
+                            <view class="name">{{item.useConditionDesc?item.useConditionDesc:''}}</view>
+                        </view>-->
+                        <view class="listTime" style="margin-top: 40rpx;">
+                            有效期：{{ item.useBeginTime }} - {{ item.expiryDate }}
+                        </view>
+                    </view>
+                    <view class="goodCode">领取券</view>
+                </view>
+            </navigator>
+            <view class="more" bindtap="unFreeMore" wx:if="{{unUserFree.length>0}}">{{unFreePage>=unFree.pages?'没有更多了':'更多'}}<view class="moreIcon" wx:if="{{unFreePage<unFree.pages}}"> >> </view></view>
+        </view>
+    </swiper-item>
+</swiper>
+
+<view class="mongolialayer" hidden="{{bombHidden}}">
+    <view class="bombBox"  >
+        <form bindsubmit="formSubmit" >
+            <view class="tit">快速登陆</view>
+            <view class="cont">
+                <view class="section">
+                    <input placeholder="请输入您的手机号" name="mobile"  bindinput="mobileVal" bindtap="mobileClick"/>
+                </view>
+                <view  class="section code">
+                    <input placeholder="请输入验证码" name="countNum" bindchange="codeChange"/>
+                    <button bindtap="countdown" disabled="{{countDisabled}}">{{countVal}}</button>
+                </view>
+                <view class="txt">点击快速登录,即表示您同意<text bindtap="toService">服务条款和隐私条例</text>
+                </view>
+            </view>
+            <view>
+                <button formType="submit" class="fast" disabled="{{loginDisabled}}">快速登陆</button>
+            </view>
+        </form>
+    </view>
+</view>

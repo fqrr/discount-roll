@@ -1,0 +1,111 @@
+page{
+    background-color: #f4f4f4;
+}
+.container {
+    width: 750rpx;
+    /*height: 1545*@wu;*/
+    min-height:100% ;
+    background-color: #f4f4f4;
+    text-align: left;
+}
+
+.cardList{
+     width: 693rpx;
+     height: 251rpx;
+     margin:20rpx auto 0 ;
+     background-image: linear-gradient(to top, #afadad, #d6d6d5);
+     overflow: hidden;
+ }
+.cardList:last-child{
+    margin-bottom: 20px;
+}
+.listBox{
+    width: 671rpx;
+    height: 231rpx;
+    margin:5px auto;
+    border: solid 1rpx #ffffff;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.listTop{
+    display: flex;
+    height: 182rpx;
+    box-sizing: border-box;
+    padding-bottom: 20 rpx;
+    border-bottom: dashed 1px #ffffff;
+    margin-bottom: 10 rpx;
+}
+.listTop .ltLeft{
+    width: 204rpx;
+    height: 124rpx;
+    color: #ffffff;
+    overflow: hidden;
+    margin-left: 29rpx;
+    margin-top: 40rpx;
+}
+.listTop .ltLeft .type{
+    font-size: 60rpx;
+    text-align: left;
+    font-weight: bold;
+    line-height: 1.13;
+}
+
+.listTop .ltLeft .limit{
+    font-size: 36rpx;
+    line-height: 1.39;
+}
+.listTop .ltRight{
+    width: 430 rpx;
+    height: 200 rpx;
+    margin-top: 26rpx;
+    overflow: hidden;
+    color: #fff;
+}
+.listTop .ltRight .name{
+    font-size: 32rpx;
+    font-weight: 500;
+    line-height: 2.13;
+}
+.listTop .ltRight .desc{
+    /*margin-top: 20 rpx;*/
+    font-size: 24rpx;
+    font-weight: 500;
+    line-height: 1.42;
+    mix-blend-mode: soft-light;
+}
+.listTop .ltRight .lim{
+    mix-blend-mode: soft-light;
+    font-size: 24rpx;
+    font-weight: 500;
+    line-height: 1.42;
+}
+.listBox .listTime{
+    display: flex;
+    font-size: 24rpx;
+    font-weight: 500;
+    height: 100 rpx;
+    width: 100%;
+    text-align: left;
+    color: #ffffff;
+}
+.listBox .status{
+    position: absolute;
+    top: 0px;
+    right: 0rpx;
+    font-size: 30rpx;
+    width: 367rpx;
+    height:63rpx;
+    font-weight: 500;
+    line-height: 63rpx;
+    color: #ffffff;
+
+}
+.listBox .status view{
+    width: 366rpx;
+    height:63rpx;
+    line-height: 63rpx;
+    background-color: #999999;
+    transform:translate(150rpx, 0) rotate(45deg);
+    text-align: center;
+}

@@ -1,0 +1,170 @@
+page{
+    width: 100%;
+    /*height: 100%;*/
+    height: 1216rpx;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+.load{
+    padding: 190rpx 32rpx 0 32rpx;
+    width: 100%;
+    height: 100%;
+    /*height: 1206rpx;*/
+    position: relative;
+    vertical-align: middle;
+    box-sizing: border-box;
+
+}
+.bjImg{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    height: 1206rpx;
+    z-index: 1;
+}
+.load .content{
+    position: absolute;
+    z-index: 10;
+    font-size: 24rpx;
+    font-weight: bold;
+    line-height: 70rpx;
+    text-align: center;
+    position: relative;
+    color: #ffffff;
+    width:100%;
+}
+
+.content .line{
+    width: 2rpx;
+    height: 621rpx;
+    background-color: #f8931d;
+    margin-top: 20rpx;
+    display: inline-block;
+    vertical-align: top;
+}
+.content>view .user{
+    text-align: center;
+}
+.user{
+    height: 46rpx;
+}
+
+.user image{
+    width: 37rpx;
+    height: 40rpx;
+}
+
+
+.nd01{
+    width: 100%;
+    height: 70rpx;
+    font-size: 24rpx;
+    font-weight: bold;
+    line-height: 60rpx;
+    text-align: center;
+    color: #ffffff;
+    position: relative;
+}
+.ndImg01{
+    width: 100%;
+    height: 80rpx;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+.nd02{
+    width: 100%;
+    height: 127rpx;
+    overflow: hidden;
+    background-repeat:no-repeat;
+    padding: 2rpx 26rpx;
+    position: relative;
+}
+.ndImg02{
+    width: 100%;
+    height: 127rpx;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: -1;
+}
+.nd02 .az{
+    height: 36rpx;
+    text-align: left;
+
+}
+.nd02 .az image{
+    width: 30rpx;
+    height: 36rpx;
+    vertical-align: middle;
+}
+.nd02 .pg{
+    height: 28rpx;
+    margin-left: 10 rpx;
+    text-align: left;
+}
+.nd02 .pg image{
+    width: 28rpx;
+    height: 33rpx;
+    vertical-align: middle;
+}
+.stp{
+    width: 100%;
+    height: 100rpx;
+    -webkit-background-size: 320rpx 110rpx;
+    background-size: 320rpx 110rpx;
+    overflow: hidden;
+    background-repeat:no-repeat;
+    padding-left: 8px;
+    box-sizing: border-box;
+}
+.nd03{
+    position: relative;
+}
+.ndImg03{
+    width: 100%;
+    height: 100rpx;
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: -1;
+}
+.nd04{  position: relative; }
+.nd05{  position: relative; }
+.nd06{  position: relative; }
+
+.stp .stp01{
+    text-align: left;
+    margin-top: -6px;
+}
+
+.stp view{
+    width: 289rpx;
+    height: 30rpx;
+}
+.nd06 .stp06{
+    margin: 9rpx;
+}
+
+.notDown{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 46%;
+    margin-right: 2%;
+    vertical-align: top;
+}
+.notDown view{
+    box-sizing: border-box;
+}
+.hadDown{
+    display: inline-block;
+    box-sizing: border-box;
+    width: 46%;
+    margin-left: 2%;
+    vertical-align: top;
+}
+

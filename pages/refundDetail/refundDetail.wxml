@@ -1,0 +1,48 @@
+<view class="container">
+    <viev class="refundBox">
+        <view class="refundBoxTit">
+            <text>退款金额</text>
+            <text class="refundTitRight">{{refundsAmount}}</text>
+        </view>
+        <view class="refundBoxTit">
+            <text>退款订单编号</text>
+            <text class="refundTitRight">{{refundsNo}}</text>
+        </view>
+        <view class="refundBoxTit">
+            <text>退回账号</text>
+            <text class="refundTitRight">微信账户</text>
+        </view>
+    </viev>
+    <view class="refundBox">
+        <view class="refundBoxTit"><image src="../img/time.png" class="refundTime"></image><text style="color:rgb(205,171,106)">退款进度</text></view>
+        <view class="refundTimeBox">
+            <view class="refundTimeNumber refundTimeNumberActive">1</view>
+            <view class="refundTimeCow refundTimeCowActive"></view>
+            <view class="refundTimeTit">申请已提交</view>
+            <view class="refundTimeTitDetail">您的退款申请已成功提交</view>
+        </view>
+        <view class="refundTimeBox ">
+            <view class="refundTimeNumber refundTimeNumberActive">2</view>
+            <view class="refundTimeCow {{backData.applyStatus>=2?'refundTimeCowActive':''}}"></view>
+            <view class="refundTimeTit">审核中</view>
+            <view class="refundTimeTitDetail">{{backData.auditRemark}}</view>
+        </view>
+        <view class="refundTimeBox">
+            <view class="refundTimeNumber {{backData.applyStatus>=2?'refundTimeNumberActive':''}}">3</view>
+            <view class="refundTimeCow {{backData.applyStatus>2?'refundTimeCowActive':''}}"></view>
+            <view class="refundTimeTit">退款处理中</view>
+            <view class="refundTimeTitDetail">{{backData.handleRemark}}</view>
+        </view>
+        <view class="refundTimeBox">
+            <view class="refundTimeNumber {{backData.applyStatus>=3?'refundTimeNumberActive':''}}">4</view>
+            <view class="refundTimeTit {{backData.applyStatus>=3?'refundTimeCowActive':''}}">处理结果{{backData.applyStatus==3?'（退款成功）':''}}{{backData.applyStatus==4?'（退款失败）':''}}</view>
+            <view class="refundTimeTitDetail">{{backData.applyStatus<3?'处理中,请等待':''}}{{backData.applyStatus==3?backData.successRemark?backData.successRemark:'':''}}{{backData.applyStatus==4?backData.failReamrk?backData.failReamrk:'':''}}</view>
+        </view>
+    </view>
+
+    <view class="callPerson" bindtap="showTell">
+        <image src="../img/customer.png" class="callPersonImg"></image>客服电话
+    </view>
+</view>
+
+

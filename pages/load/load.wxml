@@ -1,0 +1,70 @@
+                       <view class="load">
+    <image src="../img/bg02.png" class="bjImg"></image>
+    <view class="content">
+        <view class="notDown">
+            <view class="user">
+                <image src="../img/us02.png"></image>
+            </view>
+            <view class="nd01">
+                <image src="../img/ld01.png" class="ndImg01"></image>
+                未下载用户
+            </view>
+            <view class="nd02">
+                <image src="../img/ld02.png" class="ndImg02"></image>
+                <view class="az">
+                    <image src="../img/an.png"></image>
+                    前往各大应用市场
+                </view>
+                <view class="pg">
+                    <image  src="../img/apple.png"></image>
+                    前往 App Store
+                </view>
+            </view>
+            <view class="nd03 stp">
+                <image src="../img/ld03.png" class="ndImg03"></image>
+                <view class="stp01">Step1</view>
+                <view >搜索“一点万象pro”App</view>
+            </view>
+            <view class="nd04 stp">
+                <image src="../img/ld04.png" class="ndImg03"></image>
+                <view class="stp01">Step2</view>
+                <view >下 载</view>
+            </view>
+            <view class="nd05 stp">
+                <image src="../img/ld04.png" class="ndImg03"></image>
+                <view class="stp01">Step3</view>
+                <view >登陆</view>
+            </view>
+            <view class="nd06 stp">
+                <image src="../img/ld06.png" class="ndImg03"></image>
+                <view class="stp01">Step4</view>
+                <view class="stp06">查看“{{useName}}”并使用</view>
+            </view>
+        </view>
+        <view class="line"></view>
+        <view class="hadDown">
+            <view class="user">
+                <image src="../img/us01.png"></image>
+            </view>
+            <view class="nd01">
+                <image src="../img/ld01.png" class="ndImg01"></image>
+                下载用户
+            </view>
+            <view class="nd03 stp">
+                <image src="../img/ld02.png" class="ndImg03"></image>
+                <view class="stp01">Step1</view>
+                <view >搜索“一点万象pro”App</view>
+            </view>
+            <view class="nd05 stp">
+                <image src="../img/ld05.png" class="ndImg03"></image>
+                <view class="stp01">Step2</view>
+                <view >登陆</view>
+            </view>
+            <view class="nd06 stp">
+                <image src="../img/ld06.png" class="ndImg03"></image>
+                <view class="stp01">Step3</view>
+                <view class="stp06">查看“{{useName}}”并使用</view>
+            </view>
+        </view>
+    </view>
+</view>

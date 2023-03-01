@@ -1,0 +1,113 @@
+<view class="swiper">
+    <view class="swiper-tab">
+        <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" data-id="one">
+            现金购买卷
+            <view class="bottomColor"></view>
+        </view>
+        <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" data-id="two">
+            积分兑换券
+            <view class="bottomColor"></view>
+        </view>
+        <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav" data-id="three">
+            免费领取券
+            <view class="bottomColor"></view>
+        </view>
+    </view>
+</view>
+<view class="swiperEx"></view>
+<scroll-view scroll-into-view="{{toView}}" scroll-y="true" scroll-top="0" scroll-with-animation='true' bindscroll="swiChange">
+    <view class="container">
+        <!--头部-->
+        <view class="head">
+            <image src="{{src}}"></image>
+        </view>
+        <!--卡劵列表-->
+
+        <view class="cardList">
+            <!--列表渲染-->
+            <view class="codeTit" id="one">
+                <view class="codeTitLeft"></view>
+                <view class="codeTitText">现金购买券（{{ fee.total?fee.total:0 }}张）</view>
+            </view>
+            <view class="list">
+                <navigator class="notDisplay" url="../details/details?gbId={{item.gbid}}" wx:for="{{fee.list}}" wx:key="list.gbld" wx:if="{{ fee.list.length > 0}}">
+                    <view class="{{index%2===0?'listBoxLeft':'listBoxRight'}}">
+                        <image class="listBoxLeftBjImg" src="../img/pay.png"></image>
+                        <view class="listBoxLeftBox">
+                            <image class="shopImg" src="{{item.picCoverUrl}}"></image>
+                            <view class="shopTit">{{item.title}}</view>
+                            <view class="shopName">￥{{item.gbPrice}} </view>
+                            <view class="goodCode">购买券</view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="more" bindtap="feeMore" wx:if="{{ fee.list.length > 0}}">{{feePage>=fee.pages?'没有更多了':'更多'}}<view class="moreIcon" wx:if="{{feePage<fee.pages}}"> >> </view></view>
+
+            <view class="codeTit" id="two">
+                <view class="codeTitLeft"></view>
+                <view class="codeTitText">积分兑换券（{{ coin.total?coin.total:0 }}张）</view>
+            </view>
+            <view class="list">
+                <navigator class="notDisplay" url="../details/details?giftId={{item.giftId}}" wx:for="{{coin.list}}" wx:key="item" wx:if="{{ coin.list.length > 0}}">
+                    <view class="{{index%2===0?'listBoxLeft':'listBoxRight'}}">
+                        <image class="listBoxLeftBjImg" src="../img/jf.png"></image>
+                        <view class="listBoxLeftBox">
+                            <image class="shopImg" src="{{item.giftPictureUrl}}"></image>
+                            <view class="shopTit">{{item.giftName}}</view>
+                            <view class="shopName">{{item.point}}积分 </view>
+                            <view class="goodCode">兑换券</view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="more" bindtap="coinMore" wx:if="{{ coin.list.length > 0}}">{{coinPage>=coin.pages?'没有更多了':'更多'}}<view class="moreIcon" wx:if="{{coinPage<coin.pages}}"> >> </view></view>
+
+            <view class="codeTit" id="three">
+                <view class="codeTitLeft"></view>
+                <view class="codeTitText">免费领取券（{{ free.total?free.total:0 }}张）</view>
+            </view>
+            <view class="list">
+                <navigator class="notDisplay" url="../details/details?id={{item.id}}&category={{item.category}}" wx:for="{{free.list}}" wx:key="item.id" wx:if="{{ free.list.length > 0}}">
+                    <view class="{{index%2===0?'listBoxLeft':'listBoxRight'}}">
+                        <image class="listBoxLeftBjImg" src="../img/lq.png"></image>
+                        <view class="listBoxLeftBox">
+                            <image class="shopImg" src="{{item.logo}}"></image>
+                            <view class="shopTit">{{item.name}}</view>
+                            <view class="shopName">{{item.subTitle}} </view>
+                            <view class="goodCode">领取券</view>
+                        </view>
+                    </view>
+                </navigator>
+            </view>
+            <view class="more" bindtap="freeMore" wx:if="{{ free.list.length > 0}}">{{freePage>=free.pages?'没有更多了':'更多'}}<view class="moreIcon" wx:if="{{freePage<free.pages}}"> >> </view></view>
+        </view>
+    </view>
+</scroll-view>
+
+<view class="mongolialayer" wx:if="{{!bombHidden}}">
+    <view class="bombBox">
+        <form bindsubmit="formSubmit">
+            <view class="tit">快速登陆</view>
+            <view class="close" bindtap="bombClose">
+                <image src="../img/close.png"></image>
+            </view>
+            <view class="cont">
+                <view class="section">
+                    <input placeholder="请输入您的手机号" name="mobile" bindinput="mobileVal" bindtap="mobileClick"/>
+                </view>
+                <view class="section code">
+                    <input placeholder="请输入验证码" name="countNum" bindchange="codeChange"/>
+                    <button bindtap="countdown" disabled="{{countDisabled}}">{{countVal}}</button>
+                </view>
+                <view class="txt">点击快速登录,即表示您同意
+                    <text bindtap="toService">服务条款和隐私条例</text>
+                </view>
+            </view>
+            <view>
+                <button formType="submit" class="fast" disabled="{{loginDisabled}}">快速登陆</button>
+            </view>
+        </form>
+    </view>
+</view>
+
